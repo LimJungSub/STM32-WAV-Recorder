@@ -1,0 +1,5 @@
+../Core/Src/freertos.c:90:6:MX_FREERTOS_Init	1
+../Core/Src/freertos.c:144:6:StartDefaultTask	1
+../Core/Src/freertos.c:163:6:Audio	1
+../Core/Src/freertos.c:178:6:Ui	0
+../Core/Src/freertos.c:194:6:Ntp	1
