@@ -1,7 +1,0 @@
-../Core/Src/timeService.c:12:13:rtc_read	1
-../Core/Src/timeService.c:28:6:TimeService_Init	2
-../Core/Src/timeService.c:40:6:TimeService_SetRtcFromAppTime	1
-../Core/Src/timeService.c:56:6:TimeService_WaitReady	3
-../Core/Src/timeService.c:65:6:TimeService_GetNowUTC	1
-../Core/Src/timeService.c:69:13:add_hours	3
-../Core/Src/timeService.c:77:6:TimeService_GetNowLocal	1

@@ -1,8 +1,8 @@
-../Core/Src/audio_recorder.c:34:6:Audio_Init	4
-../Core/Src/audio_recorder.c:59:13:WriteWavHeader	1
-../Core/Src/audio_recorder.c:82:6:Audio_StartRecording	4
-../Core/Src/audio_recorder.c:110:6:Audio_StopRecording	2
-../Core/Src/audio_recorder.c:118:6:Audio_Process	12
-../Core/Src/audio_recorder.c:156:6:Audio_I2S_HalfCpltCallback	1
-../Core/Src/audio_recorder.c:160:6:Audio_I2S_CpltCallback	1
-../Core/Src/audio_recorder.c:164:14:Audio_GetState	1
+../Core/Src/audio_recorder.c:38:6:Audio_Init	4
+../Core/Src/audio_recorder.c:66:13:WriteWavHeader	1
+../Core/Src/audio_recorder.c:92:6:Audio_StartRecording	4
+../Core/Src/audio_recorder.c:124:6:Audio_StopRecording	2
+../Core/Src/audio_recorder.c:135:6:Audio_Process	12
+../Core/Src/audio_recorder.c:176:6:Audio_I2S_HalfCpltCallback	1
+../Core/Src/audio_recorder.c:181:6:Audio_I2S_CpltCallback	1
+../Core/Src/audio_recorder.c:186:14:Audio_GetState	1

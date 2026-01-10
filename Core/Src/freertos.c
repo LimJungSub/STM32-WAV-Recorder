@@ -17,7 +17,6 @@
 /* USER CODE BEGIN Includes */
 // 우리가 만든 태스크 헤더 포함
 #include "task_audio.h"
-#include "task_ui.h"
 #include "task_network.h"
 /* USER CODE END Includes */
 

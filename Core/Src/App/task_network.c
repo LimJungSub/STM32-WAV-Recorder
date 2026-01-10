@@ -100,7 +100,7 @@ void EspNtpTask(void *argument)
 
                 // 현재 시각을 반영한 파일명 생성 및 큐 전송
                 web_cmd.command = 1;
-                snprintf(web_cmd.filename, 32, "remoterec_%04d%02d%02d_%02d%02d%02d.wav", 
+                snprintf(web_cmd.filename, 64, "remoterec_%04d%02d%02d_%02d%02d%02d.wav", 
                          now.year, now.month, now.day, now.hour, now.min, now.sec);
                 
                 printf("[STM] Target Filename: %s\r\n", web_cmd.filename);
@@ -114,7 +114,7 @@ void EspNtpTask(void *argument)
                 printf("[STM] CMD: REC STOP\r\n");
                 
                 web_cmd.command = 0;
-                memset(web_cmd.filename, 0, 32); 
+                memset(web_cmd.filename, 0, sizeof(web_cmd.filename)); 
                 
                 osMessageQueuePut(audioQueueHandle, &web_cmd, 0, 0);
             }

@@ -38,7 +38,7 @@ extern "C" {
 /* USER CODE BEGIN ET */
 typedef struct {
     uint8_t command; // 0: STOP, 1: START
-    char filename[32];
+    char filename[64];
 } AudioCommand_t;
 /* USER CODE END ET */
 

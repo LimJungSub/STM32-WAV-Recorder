@@ -6,18 +6,15 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../Core/Src/App/task_audio.c \
-../Core/Src/App/task_network.c \
-../Core/Src/App/task_ui.c 
+../Core/Src/App/task_network.c 
 
 OBJS += \
 ./Core/Src/App/task_audio.o \
-./Core/Src/App/task_network.o \
-./Core/Src/App/task_ui.o 
+./Core/Src/App/task_network.o 
 
 C_DEPS += \
 ./Core/Src/App/task_audio.d \
-./Core/Src/App/task_network.d \
-./Core/Src/App/task_ui.d 
+./Core/Src/App/task_network.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -27,7 +24,7 @@ Core/Src/App/%.o Core/Src/App/%.su Core/Src/App/%.cyclo: ../Core/Src/App/%.c Cor
 clean: clean-Core-2f-Src-2f-App
 
 clean-Core-2f-Src-2f-App:
-	-$(RM) ./Core/Src/App/task_audio.cyclo ./Core/Src/App/task_audio.d ./Core/Src/App/task_audio.o ./Core/Src/App/task_audio.su ./Core/Src/App/task_network.cyclo ./Core/Src/App/task_network.d ./Core/Src/App/task_network.o ./Core/Src/App/task_network.su ./Core/Src/App/task_ui.cyclo ./Core/Src/App/task_ui.d ./Core/Src/App/task_ui.o ./Core/Src/App/task_ui.su
+	-$(RM) ./Core/Src/App/task_audio.cyclo ./Core/Src/App/task_audio.d ./Core/Src/App/task_audio.o ./Core/Src/App/task_audio.su ./Core/Src/App/task_network.cyclo ./Core/Src/App/task_network.d ./Core/Src/App/task_network.o ./Core/Src/App/task_network.su
 
 .PHONY: clean-Core-2f-Src-2f-App
 

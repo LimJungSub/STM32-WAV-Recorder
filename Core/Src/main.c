@@ -33,11 +33,7 @@
 /* USER CODE BEGIN Includes */
 #include "timeService.h"
 #include "audio_recorder.h"
-#include "fonts.h"
-#include "ssd1306.h"
 #include "test.h"
-#include "bitmap.h"
-#include "horse_anim.h"
 #include <string.h>
 /* USER CODE END Includes */
 
