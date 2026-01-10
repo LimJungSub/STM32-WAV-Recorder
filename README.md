@@ -1,4 +1,6 @@
 # Remote Voice Recorder 
+![Software Setup](./digitalAudio_1.jpg)
+![Hardware Setup](./digitalAudio_2.jpg)
 
 STM32F411 Nucleo를 기반으로 구현한 원격 음성 녹음기 프로젝트다. <br>
 ESP32-S3를 통한 비동기 웹 서버 제어와 STM32의 USB Mass Storage 기능을 결합하여 원격 녹음 및 데이터 관리를 진행했다.
@@ -31,12 +33,6 @@ ESP32-S3를 통한 비동기 웹 서버 제어와 STM32의 USB Mass Storage 기�
 - **메모리 정렬**: SDIO DMA 전송의 무결성을 위해 오디오 버퍼 및 파일 시스템 객체를 4바이트 단위로 강제 정렬(`__attribute__((aligned(4)))`)했다.
 - **데이터 무결성**: 녹음 종료 시 `f_sync`를 호출하여 SD카드의 물리적 섹터에 데이터를 확실히 기록함으로써 파일 깨짐 현상을 방지했다.
 
-## 하드웨어 검증 환경
-
-본 프로젝트의 모든 기능은 다음 환경에서 검증되었다.
-
-- **Storage Verification**: 256GB exFAT SD카드를 MBR 방식으로 포맷하여 호환성을 확보했다. (STM32-macOS 호환성 때문)
-- **PC 연동**: macOS 환경에서 Finder를 통한 파일 탐색 및 Disk Utility(디스크 유틸리티 앱)를 활용한 장치 인식 및 복구 프로세스를 거쳐 USB MSC 동작을 확인했다.
 
 ## 하드웨어 / 개발 환경 구성
 
@@ -48,3 +44,11 @@ ESP32-S3를 통한 비동기 웹 서버 제어와 STM32의 USB Mass Storage 기�
 
 
 - **Develope / File Vertification PC**: Macbook pro M3 pro (macOS)<br> **Develop IDE**: STM32 CubeIDE / STM32 CubeMX / ArduinoIDE
+
+
+## 하드웨어 검증 환경
+
+본 프로젝트의 모든 기능은 다음 환경에서 검증되었다.
+
+- **Storage Verification**: 256GB exFAT SD카드를 MBR 방식으로 포맷하여 호환성을 확보했다. (STM32-macOS 호환성 때문)
+- **PC 연동**: macOS 환경에서 Finder를 통한 파일 탐색 및 Disk Utility(디스크 유틸리티 앱)를 활용한 장치 인식 및 복구 프로세스를 거쳐 USB MSC 동작을 확인했다.
