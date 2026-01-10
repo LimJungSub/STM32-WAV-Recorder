@@ -52,3 +52,14 @@ ESP32-S3를 통한 비동기 웹 서버 제어와 STM32의 USB Mass Storage 기�
 
 - **Storage Verification**: 256GB exFAT SD카드를 MBR 방식으로 포맷하여 호환성을 확보했다. (STM32-macOS 호환성 때문)
 - **PC 연동**: macOS 환경에서 Finder를 통한 파일 탐색 및 Disk Utility(디스크 유틸리티 앱)를 활용한 장치 인식 및 복구 프로세스를 거쳐 USB MSC 동작을 확인했다.
+
+
+## SDIO/USB MSC 구현 첨언
+
+USB MSC 구현을, 맥북의 디스크유틸리티앱 에서 STM Product Media라는 디스크 이름으로 인식은 시켰으나, 원인 미상의 이유로 "녹음 직후" USB MSC Wire을 맥북에 연결 시 디스크유틸리티에서 무한로딩이 걸리며 USB MSC 인식이 되지 않는다.
+<br>
+그래도 SDIO를 통한 SD카드에 녹음 데이터 저장은 정상적으로 이루어져, 맥에 SD카드를 직결했을 경우 녹음된 WAV파일들이 잘 보인다.
+
+![sdc res 1](./digitalAudio_3.jpg)
+![sdc res 2](./digitalAudio_4.jpg)
+![sdc res 3](./digitalAudio_5.jpg)

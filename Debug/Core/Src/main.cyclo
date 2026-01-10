@@ -1,0 +1,6 @@
+../Core/Src/main.c:75:5:_write	2
+../Core/Src/main.c:88:5:main	1
+../Core/Src/main.c:149:6:SystemClock_Config	3
+../Core/Src/main.c:195:7:HAL_I2S_RxHalfCpltCallback	2
+../Core/Src/main.c:204:6:HAL_I2S_RxCpltCallback	2
+../Core/Src/main.c:215:6:Error_Handler	1

@@ -3,15 +3,14 @@
 // PC의 데이터 읽기/쓰기 요청을 HAL SD 드라이버와 연결
 /* USER CODE END Header */
 
-/* Includes ------------------------------------------------------------------
- */
+/* Includes ------------------------------------------------------------------*/
 #include "usbd_storage_if.h"
 
 /* USER CODE BEGIN INCLUDE */
 #include "main.h"
 /* USER CODE END INCLUDE */
 
-/* Private typedef ----------------------------------------------------------*/
+/* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
 
@@ -22,17 +21,17 @@ extern SD_HandleTypeDef hsd;
 
 /** @addtogroup STM32_USB_OTG_DEVICE_LIBRARY
   * @brief Usb device.
-  * @{ 
+  * @{
   */
 
 /** @defgroup USBD_STORAGE
   * @brief Usb mass storage device module
-  * @{ 
+  * @{
   */
 
 /** @defgroup USBD_STORAGE_Private_TypesDefinitions
   * @brief Private types.
-  * @{ 
+  * @{
   */
 
 /* USER CODE BEGIN PRIVATE_TYPES */
@@ -40,12 +39,12 @@ extern SD_HandleTypeDef hsd;
 /* USER CODE END PRIVATE_TYPES */
 
 /**
-  * @} 
+  * @}
   */
 
 /** @defgroup USBD_STORAGE_Private_Defines
   * @brief Private defines.
-  * @{ 
+  * @{
   */
 
 #define STORAGE_LUN_NBR                  1
@@ -57,12 +56,12 @@ extern SD_HandleTypeDef hsd;
 /* USER CODE END PRIVATE_DEFINES */
 
 /**
-  * @} 
+  * @}
   */
 
 /** @defgroup USBD_STORAGE_Private_Macros
   * @brief Private macros.
-  * @{ 
+  * @{
   */
 
 /* USER CODE BEGIN PRIVATE_MACRO */
@@ -70,12 +69,12 @@ extern SD_HandleTypeDef hsd;
 /* USER CODE END PRIVATE_MACRO */
 
 /**
-  * @} 
+  * @}
   */
 
 /** @defgroup USBD_STORAGE_Private_Variables
   * @brief Private variables.
-  * @{ 
+  * @{
   */
 
 /* USER CODE BEGIN INQUIRY_DATA_FS */
@@ -103,12 +102,12 @@ const int8_t STORAGE_Inquirydata_FS[] = { /* 36 */
 /* USER CODE END PRIVATE_VARIABLES */
 
 /**
-  * @} 
+  * @}
   */
 
 /** @defgroup USBD_STORAGE_Exported_Variables
   * @brief Public variables.
-  * @{ 
+  * @{
   */
 
 extern USBD_HandleTypeDef hUsbDeviceFS;
@@ -118,12 +117,12 @@ extern USBD_HandleTypeDef hUsbDeviceFS;
 /* USER CODE END EXPORTED_VARIABLES */
 
 /**
-  * @} 
+  * @}
   */
 
 /** @defgroup USBD_STORAGE_Private_FunctionPrototypes
   * @brief Private functions declaration.
-  * @{ 
+  * @{
   */
 
 static int8_t STORAGE_Init_FS(uint8_t lun);
@@ -139,7 +138,7 @@ static int8_t STORAGE_GetMaxLun_FS(void);
 /* USER CODE END PRIVATE_FUNCTIONS_DECLARATION */
 
 /**
-  * @} 
+  * @}
   */
 
 USBD_StorageTypeDef USBD_Storage_Interface_fops_FS =
@@ -155,18 +154,27 @@ USBD_StorageTypeDef USBD_Storage_Interface_fops_FS =
 };
 
 /* Private functions ---------------------------------------------------------*/
-// 저장 장치 초기화 처리 수행함
+/**
+  * @brief  Initializes the storage unit (medium) over USB FS IP
+  * @param  lun: Logical unit number.
+  * @retval USBD_OK if all operations are OK else USBD_FAIL
+  */
 int8_t STORAGE_Init_FS(uint8_t lun)
 {
   /* USER CODE BEGIN 2 */
   UNUSED(lun);
-
+  
+  // USB 연결 시 SD 카드 하드웨어 상태 재점검 및 초기화 확인
+  if (HAL_SD_GetCardState(&hsd) == HAL_SD_CARD_ERROR) {
+      HAL_SD_Init(&hsd);
+  }
+  
   return (USBD_OK);
   /* USER CODE END 2 */
 }
 
 /**
-  * @brief   Returns the medium capacity.
+  * @brief  Returns the medium capacity.
   * @param  lun: Logical unit number.
   * @param  block_num: Number of total block number.
   * @param  block_size: Block size.
@@ -290,9 +298,10 @@ int8_t STORAGE_GetMaxLun_FS(void)
 /* USER CODE END PRIVATE_FUNCTIONS_IMPLEMENTATION */
 
 /**
-  * @} 
+  * @}
   */
 
 /**
-  * @} 
+  * @}
   */
+
